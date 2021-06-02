@@ -13,6 +13,12 @@ body{
   font-family: montserrat, sans-serif;
 }
 
+@each $myheaders, $sass_color in (h1: $textcolor, h2: $textcolor, h3: $textcolor, h4: $textcolor, h5: coral, h6: crimson) {
+  #{$myheaders} {
+    color: $sass_color;
+  }
+}
+
 h4{
   margin-left: 0.5%;
 }
@@ -41,6 +47,14 @@ p {
   justify-content: center;
   display: flex;
   margin-top: 2%;
+  margin-bottom: 5%;
+}
+
+.container2 {
+  justify-content: center;
+  display: flex;
+  margin-top: 2%;
+  margin-bottom: 5%;
 }
 
 
@@ -90,10 +104,12 @@ p {
   display: block;
 }
 
-
+.links_onderwerpen{
+  display: flex;
+}
 
 .categories {
-  display: flex;
+  @extend .links_onderwerpen;
   width: 100%;
   height: 100%;
   justify-content: space-between;
@@ -107,25 +123,37 @@ p {
   background-color: $backcolorhead;
 }
 
-.links_onderwerpen{
-  display: flex;
+@for $i from 1 to 4
+{
+  .cat#{$i}
+  {
+    font-size: 12px==$i;
+  }
+}
+
+$x: 1;
+@while $x < 3
+{
+  .cat#{$x}
+  {
+    width:  $width-cats+$x;
+  }
+  $x: $x + 1;
 }
 
 .cat1 {
   display: flex;
   flex-flow: wrap;
   justify-content: left;
-  width: $width-cats;
   height: 100%;
-  padding-bottom: 3%;
   background-color: white;
   border: 2px solid #def3fc;
-
+  padding-bottom: 6.4%;
 
   ul{
     display: block;
     text-align: left;
-    margin-top: 4%;
+    margin-top: 3.3%;
     color: $textcolor;
     list-style-type: none;
 
@@ -139,7 +167,7 @@ p {
         color: $textcolor;
         text-decoration: none;
         display: block;
-        margin-top: 8%;
+        margin-top: 7.5%;
       }
       a:hover{
         color: #008cff;
@@ -149,13 +177,18 @@ p {
 }
 
 .cat2 {
-  @extend .cat1;
-
+  display: flex;
+  flex-flow: wrap;
+  justify-content: left;
+  height: 100%;
+  background-color: white;
+  border: 2px solid #def3fc;
+  padding-bottom: 1%;
 
   ul {
     display: block;
     text-align: left;
-    margin-top: 4%;
+    margin-top: 1.5%;
     color: $textcolor;
     list-style-type: none;
 
@@ -169,7 +202,7 @@ p {
         color: $textcolor;
         text-decoration: none;
         display: block;
-        margin-top: 8%;
+        margin-top: 7.5%;
         text-align: left;
       }
 
@@ -184,9 +217,9 @@ p {
   display: flex;
   flex-flow: wrap;
   justify-content: left;
-  width: $width-cats;
   height: 100%;
-  padding-bottom: 2.5%;
+  width: $width-cats;
+  padding-bottom: 3%;
   background-color: white;
   border: 2px solid #def3fc;
 
@@ -194,7 +227,7 @@ p {
   ul{
     display: block;
     text-align: left;
-    margin-top: 3%;
+    margin-top:3%;
     color: $textcolor;
     list-style-type: none;
 
@@ -250,6 +283,7 @@ footer{
   height: 25%;
 }
 
+//styling boxen vraag+antwoord pagina's
 .content-box, .content-box2 {
   width: 90%;
   display: flex;
@@ -316,6 +350,10 @@ footer{
 
 .linkmail2{
   color: $textcolor;
+}
+
+.mail {
+  color: white;
 }
 
 @import "responsive";
