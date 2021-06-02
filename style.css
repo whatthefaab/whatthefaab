@@ -380,6 +380,16 @@ footer {
   }
 }
 @media screen and (max-width: 768px) {
+  .header_vraag {
+    width: 90.5%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .header_zoek {
+    width: 89.7%;
+  }
+}
+@media screen and (max-width: 768px) {
   .categories {
     justify-content: center;
     margin-top: 5%;
